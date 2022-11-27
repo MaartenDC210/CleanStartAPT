@@ -2,17 +2,12 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>About</title>
+    <title>Pay</title>
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="mainlayout">
-  <p>About page</p>
-  <nav>
-      <a href="/home" target="_self">Home</a>
-      <a href="/about" id="btnvisited" target="_self">About</a>
-      <a href="/venuelist" target="_self">Venue List</a>
-
-  </nav>
-  <p th:text="${mySpecialNumber}">mySpecialNumber</p>
+    <h1>Pay</h1>
+    <p th:text="|De datum van vandaag is ${dateOfToday}|">1</p>
+    <p th:text="|De uiterste datum van betalen is ${datePlus30}|"></p>
 </body>
 </html>
