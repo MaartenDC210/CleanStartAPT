@@ -1,0 +1,100 @@
+html{
+    font-family: 	"Source Sans Pro", "Arial", "Helvetica Neue", "Helvetica", "sans-serif";
+}
+h1{
+    color: #FeFFFF;
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: 600;
+    clear: right;
+    margin-bottom: 0px;
+}
+h2{
+    color: 	#FeFFFF;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+
+}
+h3{
+    color: #FeFFFF;
+}
+h4{
+    color: #FeFFFF;
+    margin-left: 10px;
+}
+p{
+    color: 	#17252A;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 300;
+    margin: 10px;
+    max-width: 960px;
+}
+
+nav{
+    background-color: #2B7A78;
+    padding: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+/* Door een spatie toe te kennen worden enkel de tags a in nav aangepast */
+nav a{
+    color: #17252A;
+    background-color: #2B7A78;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+nav a:link{
+    color: #FeFFFF;
+}
+nav a:hover{
+    background-color: #2B7A78;
+    color: #17252A;
+}
+nav a:visited{
+    color: #FeFFFF;
+}
+nav a:visited:hover{
+    color: #222629;
+}
+#btnvisited{
+    color: #DEF2F1;
+    background-color: #2B7A78;
+    text-decoration: underline;
+}
+a:link{
+    color:#2B7A78;
+}
+a:visited{
+    color:#2B7A78;
+}
+
+nav h1{
+    float: right;
+    color: #17252A;
+    font-size: 24px;
+    line-height: 15px;
+    font-weight: 600;
+    clear: right;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.mainlayout{
+    background-color: #3AAFA9;
+    color: #17252A;
+    margin: 10px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}

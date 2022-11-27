@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
+<body class="mainlayout">
   <p>About page</p>
+  <nav>
+      <a href="/home" target="_self">Home</a>
+      <a href="/about" id="btnvisited" target="_self">About</a>
+  </nav>
   <p th:text="${mySpecialNumber}">mySpecialNumber</p>
 </body>
 </html>

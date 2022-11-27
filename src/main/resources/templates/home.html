@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Clean Start</title>
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
+<body class="mainlayout">
     <p>Hello world</p>
+    <nav>
+        <a href="/home" id="btnvisited" target="_self">Home</a>
+        <a href="/about" target="_self">About</a>
+    </nav>
     <p th:text="${mySpecialNumber}">mySpecialNumber</p>
 </body>
 </html>
