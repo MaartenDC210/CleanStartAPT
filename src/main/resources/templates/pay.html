@@ -6,8 +6,13 @@
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="mainlayout">
+    <div th:replace="fragments/header :: header">Header</div>
     <h1>Pay</h1>
     <p th:text="|De datum van vandaag is ${dateOfToday}|">1</p>
     <p th:text="|De uiterste datum van betalen is ${datePlus30}|"></p>
+    <p th:if="${weekend}">Have a nice weekend!</p>
+    <p th:unless="${weekend}">Weekend is coming closer!</p>
+    <div th:replace="fragments/footer :: footer">Footer</div>
+
 </body>
 </html>

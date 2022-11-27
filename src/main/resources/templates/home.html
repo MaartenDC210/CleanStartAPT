@@ -6,13 +6,8 @@
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="mainlayout">
-    <p>Hello world</p>
-    <nav>
-        <a href="/home" id="btnvisited" target="_self">Home</a>
-        <a href="/about" target="_self">About</a>
-        <a href="/venuelist" target="_self">Venue List</a>
-
-    </nav>
+    <div th:replace="fragments/header :: header">Header</div>
     <p th:text="${mySpecialNumber}">mySpecialNumber</p>
+    <div th:replace="fragments/footer :: footer">Footer</div>
 </body>
 </html>

@@ -2,12 +2,21 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>About</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>VenueList</title>
+    <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body class="mainlayout">
     <div th:replace="fragments/header :: header">Header</div>
-    <p th:text="${mySpecialNumber} + 1000">mySpecialNumber</p>
+    <div th:each="pubName : ${pubNames}">
+        <a class="button"
+            th:href="@{|/pubdetails/${pubName}|}"
+            th:text="${pubName}"
+        >
+            Pub Name
+        </a>
+
+    </div>
+
     <div th:replace="fragments/footer :: footer">Footer</div>
 
 </body>

@@ -1,0 +1,15 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VenueDetails</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="mainlayout">
+  <div th:replace="fragments/header :: header">Header</div>
+  <h2 th:if="${pubName}" th:text="${pubName}">venueName</h2>
+  <p th:unless="${pubName}">No venue was chosen</p>
+  <div th:replace="fragments/footer :: footer">Footer</div>
+
+</body>
+</html>

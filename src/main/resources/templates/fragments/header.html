@@ -2,16 +2,17 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>VenueDetails</title>
+    <title>Header</title>
     <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body class="mainlayout">
+<div th:fragment="header">
+  <h1>Pubs</h1>
   <nav>
     <a href="/home" target="_self">Home</a>
     <a href="/about" target="_self">About</a>
-    <a href="/venuelist" target="_self">Venue List</a>
-
+    <a href="/publist" target="_self" id="btnvisited">Pub List</a>
   </nav>
-  <h2 th:text="${venueName}">venueName</h2>
+</div>
 </body>
 </html>

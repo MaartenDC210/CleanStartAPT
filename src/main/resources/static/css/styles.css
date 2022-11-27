@@ -98,3 +98,17 @@ nav h1{
     width: 50%;
     padding: 10px;
 }
+
+.button{
+
+    color: #FeFFFF;
+    background-color: #2B7A78;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #2B7A78;
+    color: #222629;
+}
