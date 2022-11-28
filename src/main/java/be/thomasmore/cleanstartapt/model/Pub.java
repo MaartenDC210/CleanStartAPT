@@ -1,7 +1,8 @@
 package be.thomasmore.cleanstartapt.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
+@Entity
 public class Pub {
     @Id
     private int id;
