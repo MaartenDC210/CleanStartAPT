@@ -64,7 +64,7 @@ public class Pub {
     }
 
     public void setToddlerFriendly(Boolean toddlerFriendly) {
-        toddlerFriendly = toddlerFriendly;
+        this.toddlerFriendly = toddlerFriendly;
     }
 
     public Boolean getHasGoodFood() {
@@ -80,6 +80,6 @@ public class Pub {
     }
 
     public void setTeenagerFriendly(Boolean teenagerFriendly) {
-        teenagerFriendly = teenagerFriendly;
+        this.teenagerFriendly = teenagerFriendly;
     }
 }
