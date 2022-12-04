@@ -1,4 +1,4 @@
-package be.repositories;
+package be.thomasmore.cleanstartapt.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 

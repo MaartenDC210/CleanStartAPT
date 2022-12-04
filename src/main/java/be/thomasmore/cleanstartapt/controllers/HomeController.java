@@ -1,7 +1,7 @@
 package be.thomasmore.cleanstartapt.controllers;
 
-import be.repositories.PubRepository;
 import be.thomasmore.cleanstartapt.model.Pub;
+import be.thomasmore.cleanstartapt.repositories.PubRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
