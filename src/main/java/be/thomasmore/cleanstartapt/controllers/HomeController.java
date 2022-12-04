@@ -1,6 +1,9 @@
 package be.thomasmore.cleanstartapt.controllers;
 
+import be.repositories.PubRepository;
 import be.thomasmore.cleanstartapt.model.Pub;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +26,9 @@ public class HomeController {
             new Pub(5,"Phantasialand", "https://www.phantasialand.de/en/", false, true, true, true),
             new Pub(6,"Efteling", "https://www.efteling.nl", false, true, true, true)
     };
+
+    @Autowired
+    private PubRepository pubRepository;
 
     @GetMapping({"/", "/home"})
     public String home(Model model){
@@ -86,5 +92,11 @@ public class HomeController {
     public String pubList(Model model){
         model.addAttribute("pubNames", pubNames);
         return "publist";
+
+        // Iterable<Pub> pubs = pubRepository.findAll();
+        // model.addAttribute("pubNames", pubs);
+        // return "publist";
+
     }
+
 }
