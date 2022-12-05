@@ -9,7 +9,7 @@
   <div th:replace="fragments/header :: header">Header</div>
 
 <div class="border">
-    <a th:href="@{|/pubdetailsbyindex/${prevIndex}|}" href="#" class="nextprev">&lt;</a>
+    <a th:href="@{|/pubdetailsbyid/${prevIndex}|}" href="#" class="nextprev">&lt;</a>
 </div>
 <div class="container">
     <div th:if="${pub}">
@@ -17,7 +17,7 @@
         <a th:href="${pub.linkMoreInfo}" href="#">More info</a>
         <div class="icons">
         <div class="icon" th:if="${pub.hasFreeParking}"><img src="/img/freeparking.png"></div>
-        <div class="icon" th:if="${pub.hasGoodFood}"><img src="/img/goodfood.png"></div>
+        <div class="icon" th:if="${pub.hasGoodBeer}"><img src="/img/goodbeer.png"></div>
         <div class="icon" th:if="${pub.getToddlerFriendly}"><img src="/img/toddler.png"></div>
         <div class="icon" th:if="${pub.getTeenagerFriendly}"><img src="/img/teenagers.png"></div>
         </div>
@@ -26,7 +26,7 @@
     <p th:unless="${pub}">No valid pub is chosen</p>
 </div>
 <div class="border">
-    <a th:href="@{|/pubdetailsbyindex/${nextIndex}|}" href="#" class="nextprev">&gt;</a>
+    <a th:href="@{|/pubdetailsbyid/${nextIndex}|}" href="#" class="nextprev">&gt;</a>
 </div>
   <div th:replace="fragments/footer :: footer">Footer</div>
 

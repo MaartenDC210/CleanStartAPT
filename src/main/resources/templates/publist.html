@@ -7,10 +7,10 @@
 </head>
 <body class="mainlayout">
     <div th:replace="fragments/header :: header">Header</div>
-    <div th:each="pubName : ${pubNames}">
+    <div th:each="pub : ${pubs}">
         <a class="button"
-            th:href="@{|/pubdetails/${pubName}|}"
-            th:text="${pubName}"
+            th:href="@{|/pubdetailsbyid/${pub.id}|}"
+            th:text="${pub.PubName}"
         >
             Pub Name
         </a>

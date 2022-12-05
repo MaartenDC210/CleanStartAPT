@@ -67,12 +67,12 @@ public class Pub {
         this.toddlerFriendly = toddlerFriendly;
     }
 
-    public Boolean getHasGoodFood() {
+    public Boolean getHasGoodBeer() {
         return hasGoodBeer;
     }
 
-    public void setHasGoodFood(Boolean hasGoodFood) {
-        this.hasGoodBeer = hasGoodFood;
+    public void setHasGoodBeer(Boolean hasGoodBeer) {
+        this.hasGoodBeer = hasGoodBeer;
     }
 
     public Boolean getTeenagerFriendly() {

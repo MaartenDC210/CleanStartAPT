@@ -90,13 +90,19 @@ public class HomeController {
 
     @GetMapping("/publist")
     public String pubList(Model model){
-        model.addAttribute("pubNames", pubNames);
-        return "publist";
+//        model.addAttribute("pubNames", pubNames);
+//        return "publist";
 
-        // Iterable<Pub> pubs = pubRepository.findAll();
-        // model.addAttribute("pubNames", pubs);
-        // return "publist";
+         Iterable<Pub> pubs = pubRepository.findAll();
+         model.addAttribute("pubs", pubs);
+         return "publist";
 
+    }
+
+    @GetMapping({"/pubdetailsbyid", "/pubdetailsbyid/{id}"})
+    public String pubDetailsById(Model model, @PathVariable(required = false) Integer id){
+        model.addAttribute("pub", pubRepository.findById(id).get());
+        return "pubdetails";
     }
 
 }
