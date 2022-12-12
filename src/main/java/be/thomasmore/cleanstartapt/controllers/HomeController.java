@@ -1,6 +1,7 @@
 package be.thomasmore.cleanstartapt.controllers;
 
 import be.thomasmore.cleanstartapt.model.Pub;
+import be.thomasmore.cleanstartapt.repositories.ArtistRepository;
 import be.thomasmore.cleanstartapt.repositories.PubRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class HomeController {
 
     @Autowired
     private PubRepository pubRepository;
+    @Autowired
+    private ArtistRepository artistRepository;
 
     @GetMapping({"/", "/home"})
     public String home(Model model){
@@ -102,7 +105,48 @@ public class HomeController {
     @GetMapping({"/pubdetailsbyid", "/pubdetailsbyid/{id}"})
     public String pubDetailsById(Model model, @PathVariable(required = false) Integer id){
         model.addAttribute("pub", pubRepository.findById(id).get());
+
+
+
+        Pub pub = pubRepository.findById(id).get();;
+
+        Iterable<Pub> pubsAll = pubRepository.findAll();
+        int minId = pub.getId();
+        int maxId = pub.getId();
+
+        for ( Pub p :pubsAll) {
+            minId = p.getId() < minId ? p.getId() : minId;
+            maxId = p.getId() > maxId ? p.getId() : maxId;
+        }
+
+        int prevIndex = id - 1;
+        if(prevIndex< minId){
+            prevIndex = maxId;
+        }
+
+        int nextIndex =id + 1;
+        if(nextIndex > maxId)
+        {
+            nextIndex = minId;
+        }
+
+        model.addAttribute("pub",pub);
+        model.addAttribute("prevIndex", prevIndex);
+        model.addAttribute("nextIndex", nextIndex);
+
         return "pubdetails";
+    }
+
+    @GetMapping("/artistlist")
+    public String getArtistList(Model model){
+        model.addAttribute("artistList", artistRepository.findAll());
+        return "artistList";
+    }
+
+    @GetMapping("/artistdetails/{id}")
+    public String getArtistDetails(Model model, @PathVariable(required = false) Integer id){
+        model.addAttribute("artist", artistRepository.findById(id).get());
+        return "artistdetails";
     }
 
 }
