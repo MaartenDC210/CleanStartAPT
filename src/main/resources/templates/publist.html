@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>VenueList</title>
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body class="mainlayout">
     <div th:replace="fragments/header :: header">Header</div>
-    <div th:each="pub : ${pubs}">
-        <a class="button"
-            th:href="@{|/pubdetailsbyid/${pub.id}|}"
-            th:text="${pub.PubName}"
-        >
-            Pub Name
-        </a>
-
+    <div class="container">
+        <div class="inLine">
+            <h3>Has good Beer:</h3>
+        </div>
+        <div class="inLine">
+            <a class="buttonlook menubutton" target="_self" th:classappend="(${allPubs} == 'yes' ? 'activeFilter' : '')" th:href="@{/publist}">All</a>
+            <a class="buttonlook menubutton" target="_self" th:href="@{/publist/hasgoodbeer/yes}">Yes</a>
+            <a class="buttonlook menubutton" target="_self" th:href="@{/publist/hasgoodbeer/no}">No</a>
+        </div>
     </div>
+    <div class="container">
+        <ul class="pubList">
+            <li th:each="pub, iStat:${pubs}">
+                   <a th:href="@{|/pubdetailsbyid/${pub.id}|}"
+                      th:text="${pub.PubName}">pub name</a>
+            </li>
+        </ul>
+    </div>
+
 
     <div th:replace="fragments/footer :: footer">Footer</div>
 

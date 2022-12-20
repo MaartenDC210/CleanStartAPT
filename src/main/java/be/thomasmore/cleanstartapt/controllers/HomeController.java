@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 
 @Controller
@@ -93,20 +94,37 @@ public class HomeController {
 
     @GetMapping("/publist")
     public String pubList(Model model){
-//        model.addAttribute("pubNames", pubNames);
-//        return "publist";
-
          Iterable<Pub> pubs = pubRepository.findAll();
          model.addAttribute("pubs", pubs);
-         return "publist";
+        model.addAttribute("allPubs", "yes");
 
+        return "publist";
     }
+
+    @GetMapping( "/publist/hasgoodbeer/{hasGoodBeerValue}")
+    public String pubListHasGoodBeer (Model model, @PathVariable Optional<String> hasGoodBeerValue){
+        boolean hasGoodBeer = hasGoodBeerValue.get().equalsIgnoreCase("yes") ? true : false;
+        boolean allPubs = false;
+        Iterable<Pub> pubs;
+
+        if(!hasGoodBeerValue.isPresent()){
+            pubs = pubRepository.findAll();
+            allPubs = true;
+        }
+        else{
+            pubs = pubRepository.findByHasGoodBeer(hasGoodBeer);
+        }
+
+        model.addAttribute("pubs", pubs);
+        model.addAttribute("allPubs", allPubs ? "yes" : "no");
+        model.addAttribute("hasGoodBeer", hasGoodBeer);
+        return "publist";
+    }
+
 
     @GetMapping({"/pubdetailsbyid", "/pubdetailsbyid/{id}"})
     public String pubDetailsById(Model model, @PathVariable(required = false) Integer id){
         model.addAttribute("pub", pubRepository.findById(id).get());
-
-
 
         Pub pub = pubRepository.findById(id).get();;
 

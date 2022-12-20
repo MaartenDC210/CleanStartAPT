@@ -69,12 +69,23 @@ nav a:visited:hover{
     text-decoration: underline;
 }
 a:link{
-    color:#2B7A78;
-}
-a:visited{
-    color:#2B7A78;
+    color:#DEF2F1;
+    text-decoration: none;
 }
 
+a:hover{
+    background-color: #2B7A78;
+    color: #17252A;
+}
+
+a:visited{
+    color:#DEF2F1;
+}
+
+.filterActive{
+    color:#222629;
+    text-decoration: underline;
+}
 nav h1{
     float: right;
     color: #17252A;
@@ -111,4 +122,9 @@ nav h1{
 .button:hover{
     background-color: #2B7A78;
     color: #222629;
+}
+
+.inLine{
+    display: inline-block;
+    vertical-align: middle;
 }
