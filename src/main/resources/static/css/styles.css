@@ -82,7 +82,7 @@ a:visited{
     color:#DEF2F1;
 }
 
-.filterActive{
+a.activeFilter{
     color:#222629;
     text-decoration: underline;
 }
