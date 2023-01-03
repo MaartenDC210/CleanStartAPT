@@ -18,6 +18,31 @@
         </div>
     </div>
     <div class="container">
+        <div class="inLine">
+            <h3>Has an outdoor:</h3>
+        </div>
+        <div class="inLine">
+            <a class="buttonlook menubutton" target="_self" th:classappend="(${allPubs}=='yes') ? 'activeFilter' : ''" th:href="@{/publist}">All</a>
+            <a class="buttonlook menubutton" target="_self" th:classappend="(${hasOutDoor}==true) ? 'activeFilter' : ''" th:href="@{/publist/hasgoodbeer/yes}">Yes</a>
+            <a class="buttonlook menubutton" target="_self" th:classappend="(${hasOutDoor}==false) ? 'activeFilter' : ''" th:href="@{/publist/hasgoodbeer/no}">No</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="inLine">
+            <h3>Size:</h3>
+        </div>
+        <div class="inLine">
+            <a  class="buttonLook menubutton" th:classappend="(${filterSize}==null) ? 'activeFilter' : ''"
+                th:href="@{/venuelist}">all</a>
+            <a  class="buttonLook menubutton" th:classappend="(${filterSize}=='S') ? 'activeFilter' : ''"
+                th:href="@{/venuelist/size/S}">S</a>
+            <a  class="buttonLook menubutton" th:classappend="(${filterSize}=='M') ? 'activeFilter' : ''"
+                th:href="@{/venuelist/size/M}">M</a>
+            <a  class="buttonLook menubutton" th:classappend="(${filterSize}=='L') ? 'activeFilter' : ''"
+                th:href="@{/venuelist/size/L}">L</a>
+        </div>
+    </div>
+    <div class="container">
         <ul class="pubList">
             <li th:each="pub, iStat:${pubs}">
                    <a th:href="@{|/pubdetailsbyid/${pub.id}|}"
