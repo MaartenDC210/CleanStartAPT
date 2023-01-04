@@ -19,27 +19,27 @@
     </div>
     <div class="container">
         <div class="inLine">
-            <h3>Has an outdoor:</h3>
+            <h3>Has free parking:</h3>
         </div>
         <div class="inLine">
             <a class="buttonlook menubutton" target="_self" th:classappend="(${allPubs}=='yes') ? 'activeFilter' : ''" th:href="@{/publist}">All</a>
-            <a class="buttonlook menubutton" target="_self" th:classappend="(${hasOutDoor}==true) ? 'activeFilter' : ''" th:href="@{/publist/hasgoodbeer/yes}">Yes</a>
-            <a class="buttonlook menubutton" target="_self" th:classappend="(${hasOutDoor}==false) ? 'activeFilter' : ''" th:href="@{/publist/hasgoodbeer/no}">No</a>
+            <a class="buttonlook menubutton" target="_self" th:classappend="(${hasFreeParking}==true) ? 'activeFilter' : ''" th:href="@{/publist/hasfreeparking/yes}">Yes</a>
+            <a class="buttonlook menubutton" target="_self" th:classappend="(${hasFreeParking}==false) ? 'activeFilter' : ''" th:href="@{/publist/hasfreeparking/no}">No</a>
         </div>
     </div>
     <div class="container">
         <div class="inLine">
-            <h3>Size:</h3>
+            <h3>Capacity:</h3>
         </div>
         <div class="inLine">
-            <a  class="buttonLook menubutton" th:classappend="(${filterSize}==null) ? 'activeFilter' : ''"
-                th:href="@{/venuelist}">all</a>
-            <a  class="buttonLook menubutton" th:classappend="(${filterSize}=='S') ? 'activeFilter' : ''"
-                th:href="@{/venuelist/size/S}">S</a>
-            <a  class="buttonLook menubutton" th:classappend="(${filterSize}=='M') ? 'activeFilter' : ''"
-                th:href="@{/venuelist/size/M}">M</a>
-            <a  class="buttonLook menubutton" th:classappend="(${filterSize}=='L') ? 'activeFilter' : ''"
-                th:href="@{/venuelist/size/L}">L</a>
+            <a  class="buttonLook menubutton" th:classappend="(${filterCapacity}==null) ? 'activeFilter' : ''"
+                th:href="@{/publist}">all</a>
+            <a  class="buttonLook menubutton" th:classappend="(${filterCapacity}=='S') ? 'activeFilter' : ''"
+                th:href="@{/publist/capacity/S}">S</a>
+            <a  class="buttonLook menubutton" th:classappend="(${filterCapacity}=='M') ? 'activeFilter' : ''"
+                th:href="@{/publist/capacity/M}">M</a>
+            <a  class="buttonLook menubutton" th:classappend="(${filterCapacity}=='L') ? 'activeFilter' : ''"
+                th:href="@{/publist/capacity/L}">L</a>
         </div>
     </div>
     <div class="container">

@@ -9,22 +9,24 @@ public class Pub {
     private String PubName;
     private String linkMoreInfo;
     private Boolean hasFreeParking;
-    private Boolean toddlerFriendly;
+    private Boolean hasOutDoor;
     private Boolean hasGoodBeer;
     private Boolean teenagerFriendly;
+    private int capacity;
 
     public Pub() {
 
     }
 
-    public Pub(int id, String PubName, String linkMoreInfo, Boolean hasFreeParking, Boolean toddlerFriendly, Boolean hasGoodBeer, Boolean teenagerFriendly) {
+    public Pub(int id, String PubName, String linkMoreInfo, Boolean hasFreeParking, Boolean hasOutDoor, Boolean hasGoodBeer, Boolean teenagerFriendly, int capacity) {
         this.id = id;
         this.PubName = PubName;
         this.linkMoreInfo = linkMoreInfo;
         this.hasFreeParking = hasFreeParking;
-        this.toddlerFriendly = toddlerFriendly;
+        this.hasOutDoor = hasOutDoor;
         this.hasGoodBeer = hasGoodBeer;
         this.teenagerFriendly = teenagerFriendly;
+        this.capacity = capacity;
     }
 
     public int getId() {
@@ -59,12 +61,12 @@ public class Pub {
         this.hasFreeParking = hasFreeParking;
     }
 
-    public Boolean getToddlerFriendly() {
-        return toddlerFriendly;
+    public Boolean gethasOutDoor() {
+        return hasOutDoor;
     }
 
-    public void setToddlerFriendly(Boolean toddlerFriendly) {
-        this.toddlerFriendly = toddlerFriendly;
+    public void sethasOutDoor(Boolean hasOutDoor) {
+        this.hasOutDoor = hasOutDoor;
     }
 
     public Boolean getHasGoodBeer() {
@@ -81,5 +83,13 @@ public class Pub {
 
     public void setTeenagerFriendly(Boolean teenagerFriendly) {
         this.teenagerFriendly = teenagerFriendly;
+    }
+
+    public int getCapacity(){
+        return this.capacity;
+    }
+
+    public void setCapacity(int capacity){
+        this.capacity = capacity;
     }
 }

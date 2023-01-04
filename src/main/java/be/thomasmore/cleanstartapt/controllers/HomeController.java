@@ -21,12 +21,12 @@ public class HomeController {
     private final int mySpecialNumber = 567;
     private final String[] pubNames = {"Het Anker","'t Schuurke","De Zwaan","De ton"};
     private final Pub [] pubs = {
-            new Pub(1,"Bobbejaanland", "http://www.bobbejaanland.be", true, false, false, true),
-            new Pub(2,"Plopsa", "http://www.plopsa.be", false, true, true, true),
-            new Pub(3,"Walibi", "http://www.walibi.be", false, false, true, true),
-            new Pub(4,"Legoland", "https://www.legoland.de/en/", false, false, true, true),
-            new Pub(5,"Phantasialand", "https://www.phantasialand.de/en/", false, true, true, true),
-            new Pub(6,"Efteling", "https://www.efteling.nl", false, true, true, true)
+            new Pub(1,"Bobbejaanland", "http://www.bobbejaanland.be", true, false, false, true,20),
+            new Pub(2,"Plopsa", "http://www.plopsa.be", false, true, true, true, 30),
+            new Pub(3,"Walibi", "http://www.walibi.be", false, false, true, true,120),
+            new Pub(4,"Legoland", "https://www.legoland.de/en/", false, false, true, true,80),
+            new Pub(5,"Phantasialand", "https://www.phantasialand.de/en/", false, true, true, true, 90),
+            new Pub(6,"Efteling", "https://www.efteling.nl", false, true, true, true, 66)
     };
 
     @Autowired
@@ -118,6 +118,50 @@ public class HomeController {
         model.addAttribute("pubs", pubs);
         model.addAttribute("allPubs", allPubs ? "yes" : "no");
         model.addAttribute("hasGoodBeer", hasGoodBeer);
+        return "publist";
+    }
+
+    @GetMapping( "/publist/hasfreeparking/{hasFreeParking}")
+    public String pubListHasFreeParking (Model model, @PathVariable Optional<String> hasFreeParkingValue){
+        boolean hasFreeParking = hasFreeParkingValue.get().equalsIgnoreCase("yes") ? true : false;
+        boolean allPubs = false;
+        Iterable<Pub> pubs;
+
+        if(!hasFreeParkingValue.isPresent()){
+            pubs = pubRepository.findAll();
+            allPubs = true;
+        }
+        else{
+            pubs = pubRepository.findByHasFreeParking(hasFreeParking);
+        }
+
+        model.addAttribute("pubs", pubs);
+        model.addAttribute("allPubs", allPubs ? "yes" : "no");
+        model.addAttribute("hasFreeParking", hasFreeParking);
+        return "publist";
+    }
+
+    @GetMapping("/publist/capacity/{filter}")
+    public String pubListCapacity(Model model,
+                                @PathVariable String filter) {
+        Iterable<Pub> pubs;
+        switch (filter) {
+            case "S":
+                pubs = pubRepository.findByCapacityBetween(0, 50);
+                break;
+            case "M":
+                pubs = pubRepository.findByCapacityBetween(50, 100);
+                break;
+            case "L":
+                pubs = pubRepository.findByCapacityGreaterThan(100);
+                break;
+            default:
+                pubs = pubRepository.findAll();
+                filter = null;
+                break;
+        }
+        model.addAttribute("pubs", pubs);
+        model.addAttribute("capacity", filter);
         return "publist";
     }
 
