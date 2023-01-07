@@ -14,17 +14,17 @@ public interface PubRepository extends CrudRepository<Pub, Integer> {
     Iterable<Pub> findByCapacityBetween(int min, int max);
     Iterable<Pub> findByCapacityGreaterThan(int min);
     
-    @Query("SELECT v FROM Venue v WHERE " +
-            "(:minCapacity IS NULL OR :minCapacity <= v.capacity) AND " +
-            "(:maxCapacity IS NULL OR v.capacity <= :maxCapacity) AND " +
-            "(:maxDistance IS NULL OR v.distanceFromPublicTransportInKm <= :maxDistance) AND " +
-            "(:foodProvided IS NULL OR v.foodProvided = :foodProvided) AND " +
-            "(:indoor IS NULL OR v.indoor=:indoor) AND " +
-            "(:outdoor IS NULL OR v.outdoor=:outdoor) ")
+    @Query("SELECT p FROM Pub p WHERE " +
+            "(:minCapacity IS NULL OR :minCapacity <= p.capacity) AND " +
+            "(:maxCapacity IS NULL OR p.capacity <= :maxCapacity) AND " +
+            "(:maxDistance IS NULL OR p.distanceFromPublicTransportInKm <= :maxDistance) AND " +
+            "(:hasGoodBeer IS NULL OR p.hasGoodBeer = :hasGoodBeer) AND " +
+            "(:hasFreeParking IS NULL OR p.hasFreeParking =:hasFreeParking) AND " +
+            "(:hasOutdoor IS NULL OR p.hasOutdoor=:hasOutdoor) ")
     List<Pub> findByFilter(@Param("minCapacity") Integer minCapacity,
                              @Param("maxCapacity") Integer maxCapacity,
-                             @Param("maxDistance") Integer maxDistance,
-                             @Param("foodProvided") Boolean foodProvided,
-                             @Param("indoor") Boolean indoor,
-                             @Param("outdoor") Boolean outdoor);
+                             @Param("maxDistance") Double maxDistance,
+                             @Param("hasGoodBeer") Boolean hasGoodBeer,
+                             @Param("hasFreeParking") Boolean hasFreeParking,
+                             @Param("hasOutdoor") Boolean hasOutdoor);
 }

@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,21 +14,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import be.thomasmore.cleanstartapt.model.Pub;
 import be.thomasmore.cleanstartapt.repositories.PubRepository;
-
+@Controller
 public class PubController {
     private Logger logger = LoggerFactory.getLogger(PubController.class);
 
     @Autowired
     private PubRepository pubRepository;
     private final String[] pubNames = {"Het Anker","'t Schuurke","De Zwaan","De ton"};
-    private final Pub [] pubs = {
-            new Pub(1,"Bobbejaanland", "http://www.bobbejaanland.be", true, false, false, true,20),
-            new Pub(2,"Plopsa", "http://www.plopsa.be", false, true, true, true, 30),
-            new Pub(3,"Walibi", "http://www.walibi.be", false, false, true, true,120),
-            new Pub(4,"Legoland", "https://www.legoland.de/en/", false, false, true, true,80),
-            new Pub(5,"Phantasialand", "https://www.phantasialand.de/en/", false, true, true, true, 90),
-            new Pub(6,"Efteling", "https://www.efteling.nl", false, true, true, true, 66)
-    };
+    private final Pub [] pubs = {/*
+            new Pub(1,"Bobbejaanland", "http://www.bobbejaanland.be", true, false, false, true,20, city, distanceFromPublicTransportInKm),
+            new Pub(2,"Plopsa", "http://www.plopsa.be", false, true, true, true, 30, city, distanceFromPublicTransportInKm),
+            new Pub(3,"Walibi", "http://www.walibi.be", false, false, true, true,120, city, distanceFromPublicTransportInKm),
+            new Pub(4,"Legoland", "https://www.legoland.de/en/", false, false, true, true,80, city, distanceFromPublicTransportInKm),
+            new Pub(5,"Phantasialand", "https://www.phantasialand.de/en/", false, true, true, true, 90, city, distanceFromPublicTransportInKm),
+            new Pub(6,"Efteling", "https://www.efteling.nl", false, true, true, true, 66, city, distanceFromPublicTransportInKm)
+    */};
 
     @GetMapping({"/pubdetails","/pubdetails/{pubName}"})
     public String pubDetails(Model model, @PathVariable(required = false) String pubName){
@@ -65,9 +66,9 @@ public class PubController {
     public String pubList(Model model){
         logger.info("pubList");
         Iterable<Pub> pubs = pubRepository.findAll();
-        long nrOfpubs = pubRepository.count();
+        long nrOfPubs = pubRepository.count();
         model.addAttribute("pubs", pubs);
-        model.addAttribute("nrOfpubs", nrOfpubs);
+        model.addAttribute("nrOfPubs", nrOfPubs);
         model.addAttribute("showFilters", false);
         return "publist";
     }
@@ -174,25 +175,25 @@ public class PubController {
     public String pubListWithFilter(Model model,
                                       @RequestParam(required = false) Integer minCapacity,
                                       @RequestParam(required = false) Integer maxCapacity,
-                                      @RequestParam(required = false) Integer maxDistance,
-                                      @RequestParam(required = false) String filterFood,
-                                      @RequestParam(required = false) String filterIndoor,
-                                      @RequestParam(required = false) String filterOutdoor) {
-        logger.info(String.format("pubListWithFilter -- min=%d, max=%d, distance=%d, filterFood=%s, filterIndoor=%s, , filterOutdoor=%s",
-                minCapacity, maxCapacity, maxDistance, filterFood, filterIndoor, filterIndoor));
+                                      @RequestParam(required = false) Double maxDistance,
+                                      @RequestParam(required = false) String filterHasFreeParking,
+                                      @RequestParam(required = false) String filterHasGoodBeer,
+                                      @RequestParam(required = false) String filterHasOutdoor) {
+        logger.info(String.format("pubListWithFilter -- min=%d, max=%d, distance=%.2f, filterHasFreeParking=%s, filterHasGoodBeer=%s, , filterHasOutdoor=%s",
+                minCapacity, maxCapacity, maxDistance, filterHasFreeParking, filterHasGoodBeer, filterHasOutdoor));
 
         List<Pub> pubs = pubRepository.findByFilter(minCapacity, maxCapacity, maxDistance,
-                filterStringToBoolean(filterFood), filterStringToBoolean(filterIndoor), filterStringToBoolean(filterOutdoor));
+                filterStringToBoolean(filterHasFreeParking), filterStringToBoolean(filterHasGoodBeer), filterStringToBoolean(filterHasOutdoor));
 
         model.addAttribute("pubs", pubs);
-        model.addAttribute("nrOfpubs", pubs.size());
+        model.addAttribute("nrOfPubs", pubs.size());
         model.addAttribute("showFilters", true);
         model.addAttribute("minCapacity", minCapacity);
         model.addAttribute("maxCapacity", maxCapacity);
         model.addAttribute("maxDistance", maxDistance);
-        model.addAttribute("filterFood", filterFood);
-        model.addAttribute("filterIndoor", filterIndoor);
-        model.addAttribute("filterOutdoor", filterOutdoor);
+        model.addAttribute("filterHasFreeParking", filterHasFreeParking);
+        model.addAttribute("filterHasGoodBeer", filterHasGoodBeer);
+        model.addAttribute("filterHasOutdoor", filterHasOutdoor);
 
         return "publist";
     }

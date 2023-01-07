@@ -1,15 +1,15 @@
 
-insert into pub (ID, PUB_NAME, LINK_MORE_INFO, HAS_FREE_PARKING, HAS_OUT_DOOR, HAS_GOOD_BEER, TEENAGER_FRIENDLY, CAPACITY)
-values (1,'Het Anker','www.hetanker.be',1,1,1,1,40);
+insert into pub (ID, PUB_NAME, LINK_MORE_INFO, HAS_FREE_PARKING, HAS_OUTDOOR, HAS_GOOD_BEER, TEENAGER_FRIENDLY, CAPACITY, CITY, DISTANCE_FROM_PUBLIC_TRANSPORT_IN_KM)
+values (1,'Het Anker','www.hetanker.be',1,1,1,1,40,'Mechelen', 0.2);
 
-INSERT INTO pub (ID, PUB_NAME, LINK_MORE_INFO, HAS_FREE_PARKING, HAS_OUT_DOOR, HAS_GOOD_BEER, TEENAGER_FRIENDLY, CAPACITY)
-VALUES (2, 't Schuurke', 'www.schuurke.be', 1, 0, 1, 1,60);
+INSERT INTO pub (ID, PUB_NAME, LINK_MORE_INFO, HAS_FREE_PARKING, HAS_OUTDOOR, HAS_GOOD_BEER, TEENAGER_FRIENDLY, CAPACITY, CITY, DISTANCE_FROM_PUBLIC_TRANSPORT_IN_KM)
+VALUES (2, 't Schuurke', 'www.schuurke.be', 1, 0, 1, 1,60,'Wakkerzeel', 0.1);
 
-INSERT INTO PUB (ID, PUB_NAME, LINK_MORE_INFO, HAS_FREE_PARKING, HAS_OUT_DOOR, HAS_GOOD_BEER, TEENAGER_FRIENDLY, CAPACITY)
-VALUES (3, 'De zwaan', 'www.dezwaan.be', 1, 1, 0, 1,120);
+INSERT INTO PUB (ID, PUB_NAME, LINK_MORE_INFO, HAS_FREE_PARKING, HAS_OUTDOOR, HAS_GOOD_BEER, TEENAGER_FRIENDLY, CAPACITY, CITY, DISTANCE_FROM_PUBLIC_TRANSPORT_IN_KM)
+VALUES (3, 'De zwaan', 'www.dezwaan.be', 1, 1, 0, 1,120,'Wespelaar', 0.2);
 
-INSERT INTO PUB (ID, PUB_NAME, LINK_MORE_INFO, HAS_FREE_PARKING, HAS_OUT_DOOR, HAS_GOOD_BEER, TEENAGER_FRIENDLY, CAPACITY)
-VALUES (4, 'De Ton', 'www.deton.be', 0, 1, 1, 1,35);
+INSERT INTO PUB (ID, PUB_NAME, LINK_MORE_INFO, HAS_FREE_PARKING, HAS_OUTDOOR, HAS_GOOD_BEER, TEENAGER_FRIENDLY, CAPACITY, CITY, DISTANCE_FROM_PUBLIC_TRANSPORT_IN_KM)
+VALUES (4, 'De Ton', 'www.deton.be', 0, 1, 1, 1,35, 'Haacht', 0.1);
 
 INSERT INTO ARTIST (
     ID, ARTIST_NAME, BIO, GENRE, LINK_MORE_INFO, PORTFOLIO)
@@ -82,3 +82,77 @@ VALUES (
 Dreamville, MnM Start to Dj Finalist Flowtrack Summer Camp Casa Blanca
 Festival Sunrise Festival Red ''n Blue Café Local Noxx Publik Vice Festival
 KdG TD ...');
+
+
+
+INSERT INTO PARTY
+(ID, name, price_presale_in_eur, price_in_eur, extra_info, date, doors, pub_Id)
+VALUES
+    (1,  'Big Spring Party', 6, 10, '1 cocktail included',
+     '2021-03-21', '10:00', 1);
+
+INSERT INTO PARTY
+(ID, name, price_presale_in_eur, price_in_eur, extra_info, date, doors, pub_Id)
+VALUES
+    (2,  'Liberty 2021', 4, 6, 'free vestiaire, viplounge',
+     '2021-04-3', '22:00', 2);
+
+INSERT INTO PARTY
+(ID, name, price_presale_in_eur, price_in_eur, extra_info, date, doors, pub_Id)
+VALUES
+    (3,  'Uppercuts', null, null, ' ',
+     '2021-03-14', '21:00', 4);
+
+INSERT INTO PARTY
+(ID, name, price_presale_in_eur, price_in_eur, extra_info, date, doors, pub_Id)
+VALUES
+    (4,  'Zoetzuur', null, null, 'Zoete house / Zure techno',
+     '2021-03-21', '21:00', 4);
+
+INSERT INTO PARTY
+(ID, name, price_presale_in_eur, price_in_eur, extra_info, date, doors, pub_Id)
+VALUES
+    (5,  'Oldies but Goldies', null, null, 'afterparty@home van THE BOX!',
+     '2020-03-28', '21:00', 4);
+
+INSERT INTO PARTY_ARTISTS (PARTY_ID, ARTISTS_ID) VALUES (1, 1);
+INSERT INTO PARTY_ARTISTS (PARTY_ID, ARTISTS_ID) VALUES (1, 2);
+INSERT INTO PARTY_ARTISTS (PARTY_ID, ARTISTS_ID) VALUES (2, 2);
+INSERT INTO PARTY_ARTISTS (PARTY_ID, ARTISTS_ID) VALUES (3, 3);
+INSERT INTO PARTY_ARTISTS (PARTY_ID, ARTISTS_ID) VALUES (3, 5);
+INSERT INTO PARTY_ARTISTS (PARTY_ID, ARTISTS_ID) VALUES (4, 5);
+
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+VALUES (1, 'Gillende Giraf', 'Mechelen','maakt altijd veel lawaai');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+VALUES (2, 'Dorstige Dromedaris', 'Leest','drinkt alles op');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (3, 'Dansende Draak', 'Hombeek','de stukken vliegen ervan af');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (4, 'Zingende Zebra', 'Leest','denkt dat hij goed kan zingen');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (5, 'Drinkende Das', 'Hombeek','stopt niet');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (6, 'Zuipende Zalm', 'Rumst','die wil je niet op je feest');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (7, 'Feestende Flamingo', 'Mechelen','jeeeee');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (8, 'Kotsende Kikker', 'Mechelen','aie aie aie');
+
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (1,1);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (2,2);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (2,3);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (2,4);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (2,5);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (3,1);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (3,2);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (4,3);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (5,4);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (5,5);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (5,1);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (5,2);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (6,3);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (7,4);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (8,1);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (8,2);
+INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (8,3);

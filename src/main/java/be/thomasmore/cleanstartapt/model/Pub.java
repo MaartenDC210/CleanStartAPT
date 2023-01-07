@@ -9,24 +9,28 @@ public class Pub {
     private String PubName;
     private String linkMoreInfo;
     private Boolean hasFreeParking;
-    private Boolean hasOutDoor;
+    private Boolean hasOutdoor;
     private Boolean hasGoodBeer;
     private Boolean teenagerFriendly;
     private int capacity;
+    private String city;
+    private double distanceFromPublicTransportInKm;
 
     public Pub() {
 
     }
 
-    public Pub(int id, String PubName, String linkMoreInfo, Boolean hasFreeParking, Boolean hasOutDoor, Boolean hasGoodBeer, Boolean teenagerFriendly, int capacity) {
+    public Pub(int id, String PubName, String linkMoreInfo, Boolean hasFreeParking, Boolean hasOutdoor, Boolean hasGoodBeer, Boolean teenagerFriendly, int capacity, String city, int distanceFromPublicTransportInKm) {
         this.id = id;
         this.PubName = PubName;
         this.linkMoreInfo = linkMoreInfo;
         this.hasFreeParking = hasFreeParking;
-        this.hasOutDoor = hasOutDoor;
+        this.hasOutdoor = hasOutdoor;
         this.hasGoodBeer = hasGoodBeer;
         this.teenagerFriendly = teenagerFriendly;
         this.capacity = capacity;
+        this.city = city;
+        this.distanceFromPublicTransportInKm = distanceFromPublicTransportInKm;
     }
 
     public int getId() {
@@ -61,14 +65,6 @@ public class Pub {
         this.hasFreeParking = hasFreeParking;
     }
 
-    public Boolean gethasOutDoor() {
-        return hasOutDoor;
-    }
-
-    public void sethasOutDoor(Boolean hasOutDoor) {
-        this.hasOutDoor = hasOutDoor;
-    }
-
     public Boolean getHasGoodBeer() {
         return hasGoodBeer;
     }
@@ -91,5 +87,29 @@ public class Pub {
 
     public void setCapacity(int capacity){
         this.capacity = capacity;
+    }
+
+    public Boolean getHasOutdoor() {
+        return hasOutdoor;
+    }
+
+    public void setHasOutdoor(Boolean hasOutdoor) {
+        this.hasOutdoor = hasOutdoor;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public double getDistanceFromPublicTransportInKm() {
+        return distanceFromPublicTransportInKm;
+    }
+
+    public void setDistanceFromPublicTransportInKm(double distanceFromPublicTransportInKm) {
+        this.distanceFromPublicTransportInKm = distanceFromPublicTransportInKm;
     }
 }

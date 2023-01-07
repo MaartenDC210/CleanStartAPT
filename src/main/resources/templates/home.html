@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="mainlayout">
-    <div th:replace="fragments/header :: header">Header</div>
+    <div th:replace="~{fragments/header :: header}">Header</div>
     <p th:text="${mySpecialNumber}">mySpecialNumber</p>
-    <div th:replace="fragments/footer :: footer">Footer</div>
+    <div th:replace="~{fragments/footer :: footer}">Footer</div>
 </body>
 </html>

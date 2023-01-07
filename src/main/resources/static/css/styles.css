@@ -128,3 +128,9 @@ nav h1{
     display: inline-block;
     vertical-align: middle;
 }
+
+.infoLine {
+    margin: 15px 0;
+    font-size: 1em;
+    display: flex;
+}

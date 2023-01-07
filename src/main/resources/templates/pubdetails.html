@@ -13,13 +13,24 @@
 </div>
 <div class="container">
     <div th:if="${pub}">
-        <h1 th:text="${pub.pubName}">pubTitle</h1>
+        <h1 th:text="${pub.PubName}">pubTitle</h1>
         <a th:href="${pub.linkMoreInfo}" href="#">More info</a>
         <div class="icons">
         <div class="icon" th:if="${pub.hasFreeParking}"><img src="/img/freeparking.png"></div>
         <div class="icon" th:if="${pub.hasGoodBeer}"><img src="/img/goodbeer.png"></div>
-        <div class="icon" th:if="${pub.getToddlerFriendly}"><img src="/img/toddler.png"></div>
         <div class="icon" th:if="${pub.getTeenagerFriendly}"><img src="/img/teenagers.png"></div>
+        </div>
+        <div class="infoLine">
+            <div class="infoLineName">capacity:</div>
+            <div class="infoLineValue" th:text="|${pub.capacity} persons|">max number of persons</div>
+        </div>
+        <div class="infoLine">
+            <div class="infoLineName">city:</div>
+            <div class="infoLineValue" th:text="${pub.city}">city</div>
+        </div>
+        <div class="infoLine">
+            <div class="infoLineName">distance from public transport:</div>
+            <div class="infoLineValue" th:text="${pub.distanceFromPublicTransportInKm} + ' km'">city</div>
         </div>
 
     </div>
