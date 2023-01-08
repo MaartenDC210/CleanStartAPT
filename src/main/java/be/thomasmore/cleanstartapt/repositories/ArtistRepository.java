@@ -2,6 +2,7 @@ package be.thomasmore.cleanstartapt.repositories;
 
 import be.thomasmore.cleanstartapt.model.Artist;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -20,4 +21,11 @@ public interface ArtistRepository extends CrudRepository<Artist, Integer>
             "(UPPER(a.genre) LIKE UPPER(CONCAT('%', :keyword, '%'))) OR " +
             "(UPPER(a.portfolio) LIKE UPPER(CONCAT('%', :keyword, '%')))")
     List<Artist> findByKeyword(@Param("keyword")String keyword);
+
+    List<Artist> findByIdIn(@Param("ids") Integer[] ids);
+
+    default List<Artist> findByIdInIfNotNull(@Param("ids") Integer[] ids) {
+        if (ids != null) return findByIdIn(ids);
+        return new ArrayList<>();
+    }
 }

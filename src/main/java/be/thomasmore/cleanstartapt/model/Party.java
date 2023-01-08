@@ -1,21 +1,31 @@
 package be.thomasmore.cleanstartapt.model;
 
 import jakarta.persistence.*;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Date;
 
 @Entity
 public class Party {
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "party_generator")
+    @SequenceGenerator(name = "party_generator", sequenceName = "party_seq", allocationSize = 1)
     @Id
-    private int id;
+    private Integer id;
+    @NotBlank
     private String name;
     private Integer pricePresaleInEur;
     private Integer priceInEur;
     private String extraInfo;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @NotNull
     private Date date;
     @Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "HH:mm")
+    @NotNull
     private Date doors;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -90,8 +100,8 @@ public class Party {
         return pub;
     }
 
-    public void setPub(Pub venue) {
-        this.pub = venue;
+    public void setPub(Pub pub) {
+        this.pub = pub;
     }
 
     public Collection<Artist> getArtists() {

@@ -124,6 +124,13 @@ nav h1{
     color: #222629;
 }
 
+.filterButton {
+    margin: 20px 0;
+    padding: .5em;
+    border: none;
+    font-size: medium;
+}
+
 .inLine{
     display: inline-block;
     vertical-align: middle;
@@ -134,3 +141,99 @@ nav h1{
     font-size: 1em;
     display: flex;
 }
+
+.onefilter {
+    display: flex;
+    margin: 2px 0;
+}
+.filters {
+    margin: 15px 50px 0 0;
+    float: left;
+    width: 35%;
+}
+
+.onefilter input {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.filtername {
+    width: 4em;
+    text-align: right;
+}
+
+.onefilter input[type="text" i] {
+    width: 15em;
+}
+
+.onefilter input[type="number" i] {
+    width: 5em;
+}
+
+.infoLine {
+    margin: 15px 0;
+    font-size: 1em;
+    display: flex;
+}
+
+.infoLineName {
+    width: 13em;
+}
+
+.infoLineValue {
+    font-size: 1.2em;
+    text-align: left;
+}
+
+.publist {
+    float: left;
+}
+
+.pubinfo {
+    margin: 30px 0;
+}
+
+.pubExtraInfo {
+    font-size: small;
+}
+
+.prevButtonDiv {
+    position: fixed;
+    left: 10px;
+    top: 160px;
+}
+
+.nextButtonDiv {
+    position: fixed;
+    right: 10px;
+    top: 160px;
+}
+
+.editButtonDiv {
+    position: absolute;
+    right: 60px;
+}
+
+.bottom {
+    height: 30px;
+    font-size: 0.7em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.row1 {
+    display: flex;
+    position: relative;
+    margin: 20px 0;
+}
+
+.row1content {
+    flex-grow: 4;
+    margin: 0 50px;
+}
+
+.editButtonDiv {
+    position: absolute;
+    right: 60px;
+}
+

@@ -6,18 +6,21 @@
   <link rel="stylesheet" href="../css/styles.css" />
 
 </head>
-<body>
+<body class="mainlayout">
 <div th:replace="~{fragments/header :: header}">Header</div>
 
 
 <div class="row1">
   <div class="row1content">
+    <div class="editButtonDiv">
+      <a th:href="@{|/admin/partynew|}" class="button">new</a>
+    </div>
     <h2>parties</h2>
     <div class="cols2">
       <div class="filters"></div>
       <div class="publist">
         <div th:each="party:${parties}">
-          <a class="buttonLook mediumButton" th:href="@{|/partydetails/${party.id}|}">
+          <a class="button" th:href="@{|/partydetails/${party.id}|}">
             <span th:text="${party.name}">Party Name</span>
           </a>
         </div>

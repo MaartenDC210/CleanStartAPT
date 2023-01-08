@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/styles.css" />
 
 </head>
-<body>
+<body class="mainlayout">
 <div th:replace="~{fragments/header :: header}">Header</div>
 
 
@@ -15,10 +15,13 @@
   <div class="row1content" th:if="${party}">
 
     <div class="prevButtonDiv">
-      <a class="buttonLook smallButton" th:href="@{|/partydetails/${prevId}|}"/>
+      <a class="button" th:href="@{|/partydetails/${prevId}|}"/>
     </div>
     <div class="nextButtonDiv">
-      <a class="buttonLook smallButton" th:href="@{|/partydetails/${nextId}|}"/>
+      <a class="button" th:href="@{|/partydetails/${nextId}|}"/>
+    </div>
+    <div class="editButtonDiv">
+      <a th:href="@{|/admin/partyedit/*{id}|}" class="button">edit</a>
     </div>
 
     <h2 th:text="${party.name}">PartyDetails</h2>
@@ -50,7 +53,7 @@
       </div>
       <div class="infoLine">
         <div class="infoLineName">Doors</div>
-        <div class="infoLineValue" th:text="${party.doors}">Date</div>
+        <div class="infoLineValue" th:text="${party.doors}">Time</div>
       </div>
       <div class="infoLine" th:if="${!party.extraInfo.isBlank()}">
         <div class="infoLineName">ExtraInfo</div>
@@ -69,7 +72,7 @@
 
     <div class="publist">
       <div th:each="artist:${party.artists}">
-        <a class="buttonLook mediumButton" th:href="@{|/artistdetails/${artist.id}|}">
+        <a class="button" th:href="@{|/artistdetails/${artist.id}|}">
           <span th:text="${artist.artistName}">Artist Name</span>
         </a>
       </div>
@@ -82,7 +85,7 @@
 
     <div class="publist">
       <div th:each="animal:${party.animals}">
-        <a class="buttonLook mediumButton" th:href="@{|/animaldetails/${animal.id}|}">
+        <a class="button" th:href="@{|/animaldetails/${animal.id}|}">
           <span th:text="${animal.name}">animal name </span>
         </a>
       </div>

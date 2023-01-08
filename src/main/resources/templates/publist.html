@@ -10,13 +10,13 @@
     <div class="container">
         <div th:text="|${nrOfPubs} pubs found|">10 pubs</div>
         <div th:unless="${showFilters}" class="filters">
-            <a class="buttonLook filterButton" th:href="@{/publist/filter}">Show filter</a>
+            <a class="button filterButton" th:href="@{/publist/filter}">Show filter</a>
         </div>
         <div th:if="${showFilters}" class="filters">
-            <a class="buttonLook filterButton" th:href="@{/publist}">Hide filter</a>
+            <a class="button filterButton" th:href="@{/publist}">Hide filter</a>
             <form>
                 <div class="onefilter">
-                    <input type="submit" value="search" class="buttonLook filterButton">
+                    <input type="submit" value="search" class="button filterButton">
                 </div>
                 <h3>Capacity</h3>
                 <div class="onefilter">

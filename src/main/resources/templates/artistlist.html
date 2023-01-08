@@ -6,7 +6,7 @@
     <title>ArtistList</title>
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
-<body>
+<body class="mainlayout">
 <div th:replace="fragments/header :: header">Header</div>
 
 
@@ -16,10 +16,10 @@
     <div class="cols2">
       <div th:text="|${nrOfArtists} artists found|">10 artists</div>
       <div th:unless="${showFilters}" class="filters">
-        <a class="buttonLook filterButton" th:href="@{/artistlist/filter}">filter</a>
+        <a class="button filterButton" th:href="@{/artistlist/filter}">filter</a>
       </div>
       <div th:if="${showFilters}" class="filters">
-        <a class="buttonLook filterButton" th:href="@{/artistlist}">-</a>
+        <a class="button filterButton" th:href="@{/artistlist}">-</a>
         <form>
           <div class="onefilter">
             <input type="submit" value="search" class="buttonLook filterButton">
@@ -33,7 +33,7 @@
       </div>
       <div class="publist">
         <div th:each="artist:${artists}">
-          <a class="buttonLook mediumButton"
+          <a class="button"
              th:href="@{|/artistdetails/${artist.id}|}"
              th:text="${artist.artistName}">Artist Name</a>
         </div>

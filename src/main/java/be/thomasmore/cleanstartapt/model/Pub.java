@@ -19,7 +19,12 @@ public class Pub {
     public Pub() {
 
     }
+    public Pub(int id){this.id=id;}
 
+    public Pub(String pubName, String linkMoreInfo){
+        this.PubName = pubName;
+        this.linkMoreInfo = linkMoreInfo;
+    }
     public Pub(int id, String PubName, String linkMoreInfo, Boolean hasFreeParking, Boolean hasOutdoor, Boolean hasGoodBeer, Boolean teenagerFriendly, int capacity, String city, int distanceFromPublicTransportInKm) {
         this.id = id;
         this.PubName = PubName;

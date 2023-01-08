@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/styles.css" />
 
 </head>
-<body>
+<body class="mainlayout">
 <div th:replace="~{fragments/header :: header}">Header</div>
 
 
@@ -15,10 +15,10 @@
   <div class="row1content" th:if="${animal}">
 
     <div class="prevButtonDiv">
-      <a class="buttonLook smallButton" th:href="@{|/animaldetails/${prevId}|}">&lt;</a>
+      <a class="button" th:href="@{|/animaldetails/${prevId}|}">&lt;</a>
     </div>
     <div class="nextButtonDiv">
-      <a class="buttonLook smallButton" th:href="@{|/animaldetails/${nextId}|}">&gt;</a>
+      <a class="button" th:href="@{|/animaldetails/${nextId}|}">&gt;</a>
     </div>
 
     <h2 th:text="|Party animal: ${animal.name}|">Animal Details</h2>
@@ -48,7 +48,7 @@
 
     <div class="publist">
       <div th:each="party:${animal.parties}">
-        <a class="buttonLook mediumButton" th:href="@{|/partydetails/${party.id}|}">
+        <a class="button" th:href="@{|/partydetails/${party.id}|}">
           <span th:text="${party.name}">Party Name</span>
         </a>
       </div>
